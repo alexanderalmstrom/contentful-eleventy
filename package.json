@@ -13,15 +13,17 @@
     "styles:prod": "node-sass src/styles/ --output dist/styles",
     "scripts:dev": "webpack --mode=development",
     "scripts:prod": "webpack --mode=production",
-    "serve": "light-server -c .lightserverrc",
-    "start": "npm-run-all clean styles:dev scripts:dev eleventy --parallel eleventy:dev serve --print-label",
-    "build": "run-s styles:prod scripts:prod eleventy:prod"
+    "server": "light-server -c .lightserverrc",
+    "start": "npm-run-all clean styles:dev scripts:dev eleventy --parallel eleventy:dev server --print-label",
+    "build": "run-s styles:prod scripts:prod eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "babel-loader": "^8.0.6",
+    "contentful": "^7.13.1",
+    "dotenv": "^8.2.0",
     "light-server": "^2.6.4",
     "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",

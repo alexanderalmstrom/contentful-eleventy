@@ -2,4 +2,8 @@
 layout: layout.njk
 title: Eleventy
 ---
-<h1>Hello {{siteData.name}}!</h1>
+<h1>Hello {{site.name}}!</h1>
+
+{% for post in contentful.posts.items %}
+	<div>{{post.fields.name}}</div>
+{% endfor %}

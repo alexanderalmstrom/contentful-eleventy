@@ -9,5 +9,5 @@
     "src/styles/**/*.scss # npm run styles:dev # reloadcss",
     "dist/**/*.html"
  ],
- "open": true
+ "open": false
 }
