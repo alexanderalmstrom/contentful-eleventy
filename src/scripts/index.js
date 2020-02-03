@@ -1,3 +1,3 @@
-import panagora from './components/panagora';
+import panagora from './panagora';
 
-console.log(`Hello ${panagora[0]}!`);
+console.log(`Hello ${panagora}!`);
