@@ -5,6 +5,10 @@ title: Eleventy
 
 {% for post in posts.items %}
 <div class="post">
-	<h1><a href="/post/{{post.fields.name | slug}}">{{post.fields.name}}</a></h1>
+	<h2>
+		<a href="/post/{{post.fields.name | slug}}">
+			{{post.fields.name}}
+		</a>
+	</h2>
 </div>
 {% endfor %}
