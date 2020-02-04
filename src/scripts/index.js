@@ -1,3 +1,3 @@
-import panagora from './panagora';
+import message from './message';
 
-console.log(`Hello ${panagora}!`);
+console.log(`Hello ${message}!`);

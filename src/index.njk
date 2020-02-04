@@ -1,11 +1,10 @@
 ---
-layout: layout.njk
+layout: layouts/base.njk
 title: Eleventy
 ---
-<h1>Hello {{site.name}}!</h1>
 
-{% for post in contentful.posts.items %}
-	<div class="post">
-		<h1>{{post.fields.name}}</h1>
-	</div>
+{% for post in posts.items %}
+<div class="post">
+	<h1><a href="/post/{{post.fields.name | slug}}">{{post.fields.name}}</a></h1>
+</div>
 {% endfor %}
