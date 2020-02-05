@@ -8,10 +8,10 @@
   "scripts": {
     "clean": "rm -rf public",
     "eleventy": "npx eleventy",
-    "eleventy:serve": "npx eleventy --serve --port 8000",
+    "eleventy:serve": "npx eleventy --watch",
     "webpack:dev": "webpack-dev-server --mode=development",
     "webpack:prod": "webpack --mode=production",
-    "server": "http-server --port 8000",
+    "server": "http-server --port 5000",
     "start": "npm-run-all clean eleventy --parallel webpack:dev eleventy:serve --print-label",
     "build": "run-s clean webpack:prod eleventy"
   },
@@ -22,7 +22,6 @@
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
     "contentful": "^7.13.1",
-    "css-hot-loader": "^1.4.4",
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "http-server": "^0.12.1",
