@@ -7,7 +7,7 @@ pagination:
 permalink: "post/{{ post.fields.name | slug }}/"
 ---
 
-<h1>{{post.fields.name}}</h1>
+<h1>{{ post.fields.name }}</h1>
 {% md post.fields.content %}
 
 {% for block in post.fields.blocks %}
