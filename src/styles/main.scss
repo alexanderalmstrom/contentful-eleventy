@@ -1,0 +1,18 @@
+$white: #fff;
+$red: #f00;
+$yellow: #ff0;
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: $white;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+pre {
+ white-space: pre-wrap;
+ overflow-x: auto;
+}

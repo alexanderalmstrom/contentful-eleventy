@@ -8,7 +8,7 @@ module.exports = function (config) {
       input: 'src',
       output: 'public'
     },
-    templateFormats: ['njk', 'md'],
+    templateFormats: ['njk', 'md', 'css'],
     htmlTemplateEngine: 'njk',
     passthroughFileCopy: true
   }
