@@ -7,8 +7,14 @@ title: Eleventy
 <div class="post">
   <h2>
     <a href="/post/{{post.fields.name | slug}}">
-      {{post.fields.name}}
+      {{ post.fields.name }}
     </a>
   </h2>
+</div>
+{% endfor %}
+
+{% for page in collections.pages %}
+<div class="page">
+  {{ page.data.title }}
 </div>
 {% endfor %}

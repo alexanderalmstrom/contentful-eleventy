@@ -8,11 +8,11 @@
   "scripts": {
     "clean": "rm -rf public",
     "eleventy": "npx eleventy",
-    "eleventy:serve": "npx eleventy --watch",
+    "eleventy:watch": "npx eleventy --watch",
     "webpack:dev": "webpack-dev-server --mode=development",
     "webpack:prod": "webpack --mode=production",
     "server": "http-server --port 5000",
-    "start": "npm-run-all clean eleventy --parallel webpack:dev eleventy:serve --print-label",
+    "start": "npm-run-all clean --parallel webpack:dev eleventy:watch --print-label",
     "build": "run-s clean webpack:prod eleventy"
   },
   "dependencies": {
