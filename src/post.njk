@@ -8,7 +8,9 @@ permalink: "post/{{ post.fields.name | slug }}/"
 ---
 
 <h1>{{ post.fields.name }}</h1>
-{% md post.fields.content %}
+{% if post.fields.content %}
+  {% md post.fields.content %}
+{% endif %}
 
 {% for block in post.fields.blocks %}
   <div class="post">
