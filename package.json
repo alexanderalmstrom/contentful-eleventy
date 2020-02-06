@@ -7,13 +7,13 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf public",
-    "eleventy": "npx eleventy",
-    "eleventy:watch": "npx eleventy --watch",
+    "eleventy:dev": "npx eleventy --watch",
+    "eleventy:prod": "npx eleventy",
     "webpack:dev": "webpack-dev-server --mode=development",
     "webpack:prod": "webpack --mode=production",
-    "start": "npm-run-all clean --parallel webpack:dev eleventy:watch --print-label",
-    "build": "run-s clean webpack:prod eleventy"
     "server": "npx serve public",
+    "start": "npm-run-all clean --parallel webpack:dev eleventy:dev --print-label",
+    "build": "run-s clean webpack:prod eleventy:prod"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
