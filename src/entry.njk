@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: contentfulSync.entries
+  size: 1
+  alias: entry
+permalink: "entry/{{ entry.name | slug }}/"
+---
+
+<h1>{{ entry.name }}</h1>

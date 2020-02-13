@@ -1,9 +1,6 @@
 const fs = require('fs-extra');
-const path = require('path');
 const contentful = require('../services/contentful');
 const contentfulSyncPath = './contentfulSync.json';
-
-const responseToJson = response => JSON.parse(response.stringifySafe());
 
 const contentfulSync = async ({ nextSyncToken, ...rest }) => {
   return contentful.sync(
@@ -14,13 +11,13 @@ const contentfulSync = async ({ nextSyncToken, ...rest }) => {
       initial: true,
       ...rest
     }
-  ).then(response => responseToJson(response));
+  ).then(response => JSON.parse(response.stringifySafe()));
 }
 
-const writeSync = async ({ nextSyncToken, ...rest }) => {
-  const contentfulSyncJson = await fs.readJson(contentfulSyncPath);
+const writeToContentfulJson = async ({ nextSyncToken, ...rest }) => {
+  const json = await fs.readJson(contentfulSyncPath);
 
-  if (nextSyncToken !== contentfulSyncJson.nextSyncToken) {
+  if (nextSyncToken !== json.nextSyncToken) {
     contentfulSync({ nextSyncToken });
 
     fs.outputJson(contentfulSyncPath, {
@@ -30,10 +27,18 @@ const writeSync = async ({ nextSyncToken, ...rest }) => {
   }
 }
 
-module.exports = (async () => {
-  const entries = await contentfulSync({ type: 'Entry' });
+const mapEntryByLocale = ({ fields }, locale = 'en-US') => (
+  Object.keys(fields).reduce((state, key) => ({
+    ...state,
+    [key]: (fields[key][locale] || null)
+  }), {})
+)
 
-  console.log('====== ENTRIES ======', entries);
+module.exports = async () => {
+  const sync = await contentfulSync({ type: 'all' });
+  const entries = sync.entries.map(entry => mapEntryByLocale(entry));
 
-  writeSync(entries);
-});
+  setInterval(()=> writeToContentfulJson(sync.nextSyncToken, entries), 10000);
+
+  return { entries };
+};
