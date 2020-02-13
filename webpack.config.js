@@ -28,32 +28,20 @@ module.exports = (env, argv) => {
         {
           test: /\.m?js$/,
           exclude: /(node_modules)/,
-          use: {
-            loader: 'babel-loader'
-          }
-        },
-        {
+          use: { loader: 'babel-loader' }
+        }, {
           test: /\.(sc|c)ss$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: isDev
-              }
-            },
-            {
+              options: { hmr: isDev }
+            }, {
               loader: 'css-loader',
-              options: {
-                sourceMap: isDev
-              }
-            },
-            {
+              options: { sourceMap: isDev }
+            }, {
               loader: 'postcss-loader',
-              options: {
-                sourceMap: isDev
-              }
-            },
-            {
+              options: { sourceMap: isDev }
+            }, {
               loader: 'sass-loader',
               options: {
                 sassOptions: {
