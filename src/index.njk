@@ -26,3 +26,15 @@ title: Eleventy
   </h2>
 </div>
 {% endfor %}
+
+<h1>Contentful sync entries</h1>
+
+{% for entry in contentfulSync.entries %}
+<div class="entry">
+  <h2>
+    <a href="/entry/{{ entry.name | slug }}">
+      {{ entry.name }}
+    </a>
+  </h2>
+</div>
+{% endfor %}
